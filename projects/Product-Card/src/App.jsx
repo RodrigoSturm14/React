@@ -1,5 +1,7 @@
+import { ProductCard } from "./ProductCard";
+
 export function App(){
    return(
-      <div>Product Card</div>
+      <ProductCard />
    );
 };
