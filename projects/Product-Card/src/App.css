@@ -1,34 +1,69 @@
-.pr-Card {
-   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-   max-width: 300px;
-   margin: auto;
-   text-align: center;
-   font-family: arial;
+
+.prCard {
+   height: 370px;
+   width: 250px; 
+   margin: 10px;
+   display: flex; 
+   flex-direction: column; 
+   justify-content: center; 
+   align-items: center; 
+   background-color: #f3efef; 
+   border: 1px groove #7a7a7a; 
+   border-radius: 10px;
 }
 
-.pr-img{
-   width: 200px;
-   height: 200px;
+.prCard-imageContainer{
+   display: flex; 
+   justify-content: center; 
+   margin: 0px 0px 15px 0px;
 }
- 
-.pr-CardStock {
-   color: grey;
-   font-size: 22px;
+
+.prCard-image{
+   width: 200px; 
+   border-radius: 5px;
 }
- 
-.pr-CardButton {
-   border: none;
-   border-radius: 30px;
-   outline: 0;
-   padding: 12px;
-   color: white;
-   background-color: #000;
-   text-align: center;
-   cursor: pointer;
-   width: 200px;
-   font-size: 18px;
+
+.prCard-infoContainer{
+   font-family: system-ui;
+   width: 220px;
+   display: block;
+   justify-content: center; 
+   background-color: transparent; 
+   padding-left: 10px;
 }
- 
-.pr-CardButton:hover {
-   opacity: 0.7;
+
+.prCard-prName{
+   margin: 10px 10px 5px 5px;
+}
+
+.prCard-prStock{
+   color: #5a5353;
+   margin: 10px 10px 5px 5px;
+}
+
+.prCard-buttonContainer {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   gap: 8px;
+}
+
+.prCard-orderButton {
+   width: 100px;
+   height: 30px;
+   margin-top: 10px; 
+   background-color: #00a800; 
+   color: #ffff; 
+   border: none; 
+   border-radius: 5px;
+}
+
+.prCard-cartButton {
+   width: 30px;
+   height: 30px;
+   margin-top: 10px; 
+   background-color: #00a800; 
+   color: #ffff; 
+   border: none; 
+   border-radius: 5px;
 }
