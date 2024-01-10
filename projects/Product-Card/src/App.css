@@ -49,21 +49,68 @@
 }
 
 .prCard-orderButton {
+   cursor: pointer;
    width: 100px;
-   height: 30px;
+   height: 32px;
    margin-top: 10px; 
    background-color: #00a800; 
    color: #ffff; 
-   border: none; 
+   font-size: 16px;
+   border: 1px solid #ffff ;
    border-radius: 5px;
+   transition: .2s ease;
+}
+
+.prCard-orderButton:hover {
+   opacity: .8;
+   border: none;
 }
 
 .prCard-cartButton {
-   width: 30px;
-   height: 30px;
+   cursor: pointer;
+   width: 32px;
+   height: 32px;
    margin-top: 10px; 
    background-color: #00a800; 
    color: #ffff; 
    border: none; 
    border-radius: 5px;
+   transition: .2s ease;
+}
+
+.prCard-cartButton:hover {
+   opacity: .8;
+}
+
+.prCard-cartButton.cartFilled  {
+   border: 1px solid #ffff ;
+}
+
+.prCard-cartButton.cartNotFilled  {
+   border: 1px solid #ffff ;
+}
+
+.prCard-cartButton.cartNotFilled:hover  {
+   border: none;
+}
+
+.prCard-cartButton.cartFilled:hover {
+   border: 1px solid red;
+   background-color: red;
+}
+
+.prCard-cartButton.cartFilled:hover .prCard-cartButton-dontFillIt {
+   display: block;
+}
+
+.prCard-cartButton.cartFilled:hover .prCard-cartButton-FillIt {
+   display: none;
+}
+
+.prCard-cartButton-FillIt{
+   display: block;
+}
+
+.prCard-cartButton-dontFillIt{
+   display: none;
 }
