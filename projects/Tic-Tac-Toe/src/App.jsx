@@ -8,12 +8,20 @@ import { WinnerModal } from './components/WinnerModal.jsx';
 import { TURNS } from './constants.js';
 // funciones
 import { checkWinner, checkEndGame } from './logic/board.js';
+import { saveGameStorage, resetGameStorage } from './logic/storage/index.js';
 
 function App() {
-  const [board, setBoard] = useState(Array(9).fill(null));
+  const [board, setBoard] = useState( () => {
+    const boardFromStorage = window.localStorage.getItem('board');
+    if(boardFromStorage) return JSON.parse(boardFromStorage);
+    return Array(9).fill(null);
+  });
 
   // useState para saber quien tiene el turno
-  const [turn, setTurn] = useState(TURNS.X);
+  const [turn, setTurn] = useState( () => {
+    const turnFromStorage = window.localStorage.getItem('turn');
+    return turnFromStorage ?? TURNS.X;
+  });
 
   // useState para saber si hay ganador y quien es el ganador
   const [winner, setWinner] = useState(null); // null es q no hay ganador todavia, se sigue jugando; false es q hay empate, se completaron todos los cuadrados
@@ -22,6 +30,8 @@ function App() {
     setBoard(Array(9).fill(null));
     setTurn(TURNS.X);
     setWinner(null);
+
+    resetGameStorage();
   }
 
   // actualizar tablero
@@ -37,6 +47,9 @@ function App() {
     // cambiar turno
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
     setTurn(newTurn);
+
+    // guardar ultimo movimiento y turno
+    saveGameStorage({ newBoard: newBoard, newTurn: newTurn });
 
     // checkear si hay ganador
     const newWinner = checkWinner(newBoard);
