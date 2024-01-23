@@ -1,35 +1,24 @@
 import { products as initialProducts } from "./mocks/products.json";
+import { IS_DEVELOPMENT } from "./config.js";
 // componentes
 import { Product } from "./components/Product.jsx";
 import { Header } from "./components/Header.jsx";
-import { useState } from "react";
+import { Footer } from "./components/Footer.jsx";
+// hooks
+import { useFilters } from "./hooks/useFilters.js";
 
 function App() {
-  const [products] = useState(initialProducts);
-  const [filters, setFilters] = useState({
-    category: 'all',
-    minPrice: 0
-  });
+  // custom hook q devuelve funcion 'filterProducts' y una forma de actualizar el estado de 'filters', 'setFilters'
+  const { filterProducts } = useFilters();
 
-  const filterProducts = (products) =>{
-    return products.filter(product => {
-      return(
-        product.price >= filters.minPrice && (
-          filters.category === 'all' ||
-          product.category === filters.category
-        )
-      );
-    });
-  };
-
-  const filteredProducts = filterProducts(products);
+  const filteredProducts = filterProducts(initialProducts);
 
   return (
     <>
-      <Header changeFilters={setFilters}/>
+      <Header />
       <Product products={filteredProducts}/>
+      {IS_DEVELOPMENT && <Footer />}
     </>
-    
   );
 };
 
