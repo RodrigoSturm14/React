@@ -1,21 +1,21 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import './Filters.css';
-import { Product } from './Product';
+import { useFilters } from '../hooks/useFilters.js';
 
-export function Filters({ filterChanged }){
-
-  const [minPrice, setMinPrice] = useState(0);
+export function Filters(){
+  const minPriceFilterId = useId();
+  const categoryFilterId = useId();
+  const { filters, setFilters } = useFilters()
 
   const handleChangeMinPrice = (event) =>{
-    setMinPrice(event.target.value);
-    filterChanged(prevState => ({
+    setFilters(prevState => ({ // el 'filterChanged' es el 'setFilters'
       ...prevState, // se copia el estado anterior del filtro, con todos sus datos
       minPrice: event.target.value // se actualiza el precio establecido con el elemento rango en el estado anterior q se acaba de copiar
     }))
   }
 
   const handleChangeCategory = (event) =>{
-    filterChanged(prevState => ({
+    setFilters(prevState => ({ // el 'filterChanged' es el 'setFilters'
       ...prevState,
       category: event.target.value // ????????
     }))
@@ -24,19 +24,20 @@ export function Filters({ filterChanged }){
   return(
     <section className='filters'>
       <div>
-        <label htmlFor="price">Precio a partir de: </label>
+        <label htmlFor={minPriceFilterId} >Precio a partir de: </label>
         <input type="range" 
-        id="price"
+        id={minPriceFilterId}
         min='0'
         max='1000' 
         onChange={handleChangeMinPrice}
+        value={filters.minPrice}
         />
-        <span>${minPrice}</span>
+        <span>${filters.minPrice}</span>
       </div>
 
       <div>
-        <label htmlFor="category">Categorias </label>
-        <select id="category" onChange={handleChangeCategory}>
+        <label htmlFor={categoryFilterId} >Categorias </label>
+        <select id={categoryFilterId} onChange={handleChangeCategory}>
           <option value="all">Todas</option>
           <option value="laptops">Notebooks</option>
           <option value="smartphones">Celulares</option>
