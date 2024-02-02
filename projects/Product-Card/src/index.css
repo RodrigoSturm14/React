@@ -6,4 +6,16 @@ body{
    place-content: center;
    min-height: 100vh;
 }
+.title-h1{
+   color: #f3efef;
+}
 
+.label-categoryFilter{
+   color: #f3efef;
+}
+#root {
+   max-width: 1500px;
+   margin: 0 auto;
+   text-align: center;
+   width: 100%;
+}
