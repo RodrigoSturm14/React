@@ -1,7 +1,10 @@
+import { Filters } from "./Filters.jsx";
+
 export function Header(){
   return(
-    <div>
-      <h1>Card Products</h1>
-    </div>
+    <>
+      <h1 className="title-h1">Card Products</h1>
+      <Filters />
+    </>
   )
 }
