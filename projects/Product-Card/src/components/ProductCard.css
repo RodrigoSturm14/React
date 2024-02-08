@@ -20,9 +20,10 @@
    width: 250px; 
    margin: 10px;
    display: flex; 
-   flex-direction: column; 
+   flex-direction: column;
    justify-content: center; 
-   align-items: center; 
+   align-items: center;
+   gap: 15px;
    background-color: #f3efef; 
    border: 1px groove #7a7a7a; 
    border-radius: 10px;
@@ -31,7 +32,7 @@
 .prCard-imageContainer{
    display: flex; 
    justify-content: center; 
-   margin: 0px 0px 15px 0px;
+   margin: 0px 0px 5px 0px;
    width: 200px;
 }
 
@@ -43,25 +44,30 @@
 .prCard-infoContainer{
    font-family: system-ui;
    width: 220px;
-   display: block;
-   justify-content: center; 
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 5px; 
    background-color: transparent; 
    padding-left: 10px;
 }
 
 .prCard-prName{
-   margin: 10px 10px 5px 5px;
+   margin: 0px 10px 0px 5px;
+   max-height: 50px;
+   overflow: scroll;
+   scrollbar-width: none;
 }
 
 .prCard-prStock{
    color: #5a5353;
-   margin: 10px 10px 5px 5px;
+   margin: 0px 10px 0px 5px;
 }
 
 .prCard-buttonContainer {
    display: flex;
    flex-direction: row;
-   flex-wrap: wrap;
+   align-items: center;
    gap: 8px;
 }
 
@@ -69,7 +75,6 @@
    cursor: pointer;
    width: 100px;
    height: 32px;
-   margin-top: 10px; 
    background-color: #00a800; 
    color: #ffff; 
    font-size: 16px;
@@ -87,47 +92,14 @@
    cursor: pointer;
    width: 32px;
    height: 32px;
-   margin-top: 10px; 
    background-color: #00a800; 
    color: #ffff; 
-   border: none; 
+   border: 1px solid #ffff;
    border-radius: 5px;
    transition: .2s ease;
 }
 
 .prCard-cartButton:hover {
    opacity: .8;
-}
-
-.prCard-cartButton.cartFilled  {
-   border: 1px solid #ffff ;
-}
-
-.prCard-cartButton.cartNotFilled  {
-   border: 1px solid #ffff ;
-}
-
-.prCard-cartButton.cartNotFilled:hover  {
    border: none;
-}
-
-.prCard-cartButton.cartFilled:hover {
-   border: 1px solid red;
-   background-color: red;
-}
-
-.prCard-cartButton.cartFilled:hover .prCard-cartButton-dontFillIt {
-   display: block;
-}
-
-.prCard-cartButton.cartFilled:hover .prCard-cartButton-FillIt {
-   display: none;
-}
-
-.prCard-cartButton-FillIt{
-   display: block;
-}
-
-.prCard-cartButton-dontFillIt{
-   display: none;
 }
