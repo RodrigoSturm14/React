@@ -8,14 +8,13 @@ body{
 }
 .title-h1{
    color: #f3efef;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
-.label-categoryFilter{
-   color: #f3efef;
-}
 #root {
    max-width: 1500px;
    margin: 0 auto;
-   text-align: center;
    width: 100%;
 }
